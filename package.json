@@ -1,0 +1,27 @@
+{
+  "name": "rosa",
+  "version": "1.0.0",
+  "description": "chatbot for facebook messenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggclub-org/rosa.git"
+  },
+  "keywords": [
+    "chatbot",
+    "facebook"
+  ],
+  "author": "cuongnb14@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eggclub-org/rosa/issues"
+  },
+  "homepage": "https://github.com/eggclub-org/rosa#readme",
+  "dependencies": {
+    "aimlinterpreter": "^0.1.7",
+    "facebook-chat-api": "^1.2.0"
+  }
+}
