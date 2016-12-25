@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml>
+    <category>
+        <pattern>DO YOU LOVE ME?</pattern>
+        <template>Yes :3
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>Sorry! I found nothing.</template>
+    </category>
+
+</aiml>

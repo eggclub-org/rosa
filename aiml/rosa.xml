@@ -18,9 +18,4 @@
         <template>My name is <bot name='name'/>.
         </template>
     </category>
-
-    <category>
-        <pattern>*</pattern>
-        <template>Sorry! I found nothing.</template>
-    </category>
 </aiml>
