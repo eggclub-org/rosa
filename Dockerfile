@@ -7,6 +7,9 @@
 FROM ubuntu:16.04
 MAINTAINER Cuong Nguyen "cuongnb14@gmail.com"
 
+ENV FB_USERNAME fbmail@gmail.com
+ENV FB_PASSWORD yourfbpass
+
 RUN apt-get update -qq
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs npm

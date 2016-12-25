@@ -1,7 +1,8 @@
 var login = require("facebook-chat-api");
-var configs = require("./configs.js");
 AIMLInterpreter = require('aimlinterpreter/AIMLInterpreter');
 
+const USERNAME = process.env.FB_USERNAME;
+const PASSWORD = process.env.FB_PASSWORD;
 
 var aimlInterpreter = new AIMLInterpreter({name: 'Rosa', age: '1'});
 aimlInterpreter.loadAIMLFilesIntoArray(['./aiml/rosa.xml', './aiml/private.xml']);
@@ -21,7 +22,7 @@ function changeAlias(alias) {
 
 var answeredThreads = {};
 
-login({email: configs.USERNAME, password: configs.PASSWORD}, function callback(err, api) {
+login({email: USERNAME, password: PASSWORD}, function callback(err, api) {
     if (err) return console.error(err);
 
     api.listen(function callback(err, message) {
