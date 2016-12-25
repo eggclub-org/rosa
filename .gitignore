@@ -39,3 +39,4 @@ jspm_packages
 .idea/
 configs.js
 aiml/private.xml
+mysql-data/

@@ -1,0 +1,63 @@
+#
+# Source code address
+# https://hub.docker.com/u/tranhuucuong91/
+#
+# Default configure
+# - username: admin
+# - password: goodday
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+version: "2"
+
+services:
+
+    rosa:
+        image: cuongnb14/rosa:0.1
+        networks:
+            - rosa-back
+        volumes:
+            - .:/usr/src/app
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 573741824       # 512 MB RAM
+        hostname: rosa
+        command: nodejs index.js
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+    mysql:
+        image: mysql:5.7
+        command: --slow_query_log='ON' --long_query_time=0.5 --slow_query_log_file='/var/lib/mysql/slow-queries.log'
+        volumes:
+            - ./mysql-data/:/var/lib/mysql/
+         #   - ./mysql-init-data/:/docker-entrypoint-initdb.d/
+        environment:
+           - MYSQL_ROOT_PASSWORD=lab@secret
+           - MYSQL_USER=lab
+           - MYSQL_PASSWORD=lab@123
+           - MYSQL_DATABASE=rosa
+        ports:
+            - "127.0.0.1:3311:3306"
+        networks:
+            - rosa-back
+        hostname: mysql
+        #domainname: rosa.com
+        cpu_shares: 512             # 0.5 CPU
+        mem_limit: 573741824       # 512 MB RAM
+        # memswap_limit: 0            # 0 MB SWAP
+        # privileged: true
+        restart: always
+        # stdin_open: true
+        # tty: true
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    rosa-back:
